@@ -8,7 +8,7 @@ export default function ProductDetailsPage() {
   const [product, setProduct] = useState(null);
   const [colorCode, setColorCode] = useState('');
   const [storageCode, setStorageCode] = useState('');
-  const { setCartCount } = useCart();
+  const { updateCartCount } = useCart();
 
   useEffect(() => {
     const load = async () => {
@@ -24,7 +24,7 @@ export default function ProductDetailsPage() {
 
   const handleAddToCart = async () => {
     const res = await addToCart({ id: product.id, colorCode, storageCode });
-    setCartCount(res.count);
+    updateCartCount(res);
   };
 
   return (

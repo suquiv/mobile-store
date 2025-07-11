@@ -3,7 +3,7 @@ export function getCachedData(key) {
   if (!data) return null;
 
   const { value, timestamp } = JSON.parse(data);
-  const isExpired = Date.now() - timestamp > 3600000; // 1 hora
+  const isExpired = Date.now() - timestamp > 3600000; //1 hora
   return isExpired ? null : value;
 }
 
